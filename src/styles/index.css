@@ -1,0 +1,97 @@
+:root {
+    --blue: #0067b1;
+    --orange: #f58220;
+    --muted: #5b6770
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1f2933
+}
+
+:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    background: var(--blue)
+}
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none
+}
+
+.brand span {
+    font-weight: 400
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px
+}
+
+.btn {
+    padding: 10px 22px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.btn-outline {
+    border-color: #fff;
+    color: #fff
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--blue)
+}
+
+.btn-orange {
+    background: var(--orange);
+    color: #fff
+}
+
+.btn-orange:hover {
+    background: #d96e10
+}
+
+.main {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center
+}
+
+.main h1 {
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1
+}
+
+.main p {
+    max-width: 44ch;
+    margin-top: 20px;
+    font-size: 1.15rem;
+    color: var(--muted)
+}

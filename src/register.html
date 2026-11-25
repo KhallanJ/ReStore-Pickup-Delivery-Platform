@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register | ReStore Delivery</title>
+    <link rel="stylesheet" href="./styles/register.css">
+</head>
+
+<body>
+    <header class="nav">
+        <a class="brand" href="index.html">Habitat for Humanity <span>Pick Up & Delivery</span></a>
+        <nav class="nav-actions" aria-label="Account">
+            <a class="btn btn-outline" href="login.html">Login</a>
+            <a class="btn btn-orange" href="register.html">Register</a>
+        </nav>
+    </header>
+    <main>
+        <section class="card">
+            <h1>Create your account</h1>
+            <p class="sub">Choose how you want to use ReStore Delivery.</p>
+
+            <!-- Customer or Driver slider -->
+            <div class="tabs" role="tablist">
+                <button class="tab" role="tab" id="tab-customer" data-role="customer" aria-controls="form-customer"
+                    aria-selected="true" type="button">Customer</button>
+                <button class="tab" role="tab" id="tab-driver" data-role="driver" aria-controls="form-driver"
+                    aria-selected="false" type="button">Driver</button>
+            </div>
+            <!-- Customer Form -->
+            <form id="form-customer" role="tabpanel" aria-labelledby="tab-customer" action="#" method="post">
+                <input type="hidden" name="role" value="customer">
+                <label for="c-name">Full name</label>
+                <input id="c-name" name="name" autocomplete="name" required>
+                <div class="row">
+                    <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+                    <div><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" required></div>
+                </div>
+                <label for="c-address">Address for pickups and deliveries</label>
+                <input id="c-address" name="address" autocomplete="street-address" required>
+                <div class="row">
+                    <div><label for="c-pass">Password</label><input id="c-pass" name="password" type="password" minlength="8" autocomplete="new-password" required></div>
+                    <div><label for="c-pass2">Confirm password</label><input id="c-pass2" name="password2" type="password" minlength="8" autocomplete="new-password" required></div>
+                </div>
+                <label class="check"><input type="checkbox" required> I agree to the terms of service</label>
+                <button class="btn btn-orange submit" type="submit">Create customer account</button>
+            </form>
+
+            <!-- Driver Form -->
+            <form id="form-driver" role="tabpanel" aria-labelledby="tab-driver" action="#" method="post" hidden>
+                <input type="hidden" name="role" value="driver">
+                <label for="d-name">Full name</label>
+                <input id="d-name" name="name" autocomplete="name" required>
+                <div class="row">
+                    <div><label for="d-email">Email</label><input id="d-email" name="email" type="email" autocomplete="email" required></div>
+                    <div><label for="d-phone">Phone</label><input id="d-phone" name="phone" type="tel" autocomplete="tel" required></div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="d-vehicle">Vehicle type</label>
+                        <select id="d-vehicle" name="vehicle" required>
+                            <option value="">Select one</option>
+                            <option>Car</option>
+                            <option>SUV</option>
+                            <option>Pickup truck</option>
+                            <option>Cargo van</option>
+                        </select>
+                    </div>
+                    <div><label for="d-plate">Licence plate</label><input id="d-plate" name="plate" required></div>
+                </div>
+                <div class="row">
+                    <div><label for="d-pass">Password</label><input id="d-pass" name="password" type="password" minlength="8" autocomplete="new-password" required></div>
+                    <div><label for="d-pass2">Confirm password</label><input id="d-pass2" name="password2" type="password" minlength="8" autocomplete="new-password" required></div>
+                </div>
+                <label class="check"><input type="checkbox" required> I have a valid driver's licence and vehicle insurance</label>
+                <label class="check"><input type="checkbox" required> I agree to the terms of service</label>
+                <button class="btn btn-orange submit" type="submit">Create driver account</button>
+            </form>
+
+            <p class="alt">Already have an account? <a href="login.html">Log in</a></p>
+        </section>
+    </main>
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        function show(role) {
+            tabs.forEach(t => {
+                const on = t.dataset.role === role;
+                t.setAttribute('aria-selected', on);
+                document.getElementById('form-' + t.dataset.role).hidden = !on;
+            });
+        }
+        tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.role)));
+        show(new URLSearchParams(location.search).get('role') === 'driver' ? 'driver' : 'customer');
+    </script>
+</body>
+
+</html>

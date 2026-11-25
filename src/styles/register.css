@@ -1,0 +1,177 @@
+:root {
+    --blue: #0067b1;
+    --green: #43b02a;
+    --orange: #f58220;
+    --muted: #5b6770;
+    --line: #d5dbe0;
+    --soft: #f3f6f1
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1f2933
+}
+
+:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    background: var(--blue)
+}
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none
+}
+
+.brand span {
+    font-weight: 400
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px
+}
+
+.btn {
+    padding: 10px 22px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.btn-outline {
+    border-color: #fff;
+    color: #fff
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--blue)
+}
+
+.btn-orange {
+    background: var(--orange);
+    color: #fff
+}
+
+.btn-orange:hover {
+    background: #d96e10
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px;
+    min-height: calc(100vh - 80px);
+    background: var(--soft)
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff
+}
+
+h1 {
+    margin: 0 0 6px;
+    font-size: 1.75rem
+}
+
+.sub {
+    margin: 0 0 20px;
+    color: var(--muted)
+}
+
+label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: 600
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    font: inherit
+}
+
+.submit {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px
+}
+
+.alt {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--muted)
+}
+
+.alt a {
+    color: var(--blue);
+    font-weight: 700
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--soft)
+}
+
+.tab {
+    padding: 10px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    font: inherit;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer
+}
+
+.tab[aria-selected="true"] {
+    background: var(--green);
+    color: #fff
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    font-weight: 400
+}
+
+.check input {
+    width: auto
+}
